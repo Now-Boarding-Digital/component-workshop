@@ -6,6 +6,16 @@ of every Claude Code session.
 
 ---
 
+## Figma Design System
+
+- **File**: [🧰 Now Boarding Design System Kit](https://www.figma.com/design/h7IRa1i2N5ucusuhqIhCTJ/%F0%9F%A7%B0-Now-Boarding-Design-System-Kit)
+- **File Key**: `h7IRa1i2N5ucusuhqIhCTJ`
+- **Library**: 🧰 Now Boarding Design System Kit
+
+When starting a new component session, pull the node URL from Figma by selecting the component frame and copying the browser URL.
+
+---
+
 ## Project Stack
 
 - React 18
