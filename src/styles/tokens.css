@@ -1,0 +1,147 @@
+/* ─────────────────────────────────────────────────────────────
+   Design Tokens — source: Now Boarding Design System Kit
+   Figma file key: h7IRa1i2N5ucusuhqIhCTJ
+
+   Theme colors are stored as RGB channels (r g b) so Tailwind v3
+   can apply opacity modifiers: rgb(var(--ui-action) / 0.5)
+   Static values (radius, font, spacing) use standard units.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Brand: Radius ────────────────────────────────────────── */
+  --radius-control-large:  12px;
+  --radius-control-medium: 8px;
+  --radius-control-small:  4px;
+  --radius-tag-large:      8px;
+  --radius-tag-small:      4px;
+  --radius-icon-buttons:   100px;
+  --radius-field:          8px;
+  --radius-dropdown:       8px;
+
+  /* ── Brand: Typography ────────────────────────────────────── */
+  --fonts-body:    Inter, sans-serif;
+  --fonts-heading: Inter, sans-serif;
+  --weight-default: 400;
+  --weight-bold:    700;
+
+  /* ── Opacity ──────────────────────────────────────────────── */
+  --opacity-hover:    0.06;
+  --opacity-active:   0.12;
+  --opacity-modal:    0.64;
+  --opacity-disabled: 0.50;
+  --opacity-status:   0.08;
+
+  /* ── Static: Neutral (RGB channels) ──────────────────────── */
+  --neutral-white:      255 255 255;  /* #ffffff */
+  --neutral-grey-950:   231 0 11;     /* #e7000b — as per Figma tokens */
+  --neutral-grey-900:   15 23 42;     /* #0f172a */
+  --neutral-grey-800:   30 41 59;     /* #1e293b */
+  --neutral-grey-700:   51 65 85;     /* #334155 */
+  --neutral-grey-600:   71 85 105;    /* #475569 */
+  --neutral-grey-500:   110 127 151;  /* #6e7f97 */
+  --neutral-grey-400:   148 163 184;  /* #94a3b8 */
+  --neutral-grey-300:   203 213 225;  /* #cbd5e1 */
+  --neutral-grey-200:   226 232 240;  /* #e2e8f0 */
+  --neutral-grey-100:   241 245 249;  /* #f1f5f9 */
+  --neutral-grey-50:    248 250 252;  /* #f8fafc */
+
+  /* ── Static: Brand (RGB channels) ────────────────────────── */
+  --brand-primary:      0 111 255;    /* #006fff */
+  --brand-secondary:    255 208 0;    /* #ffd000 */
+  --brand-action-dark:  12 101 217;   /* #0c65d9 */
+  --brand-action-light: 61 145 255;   /* #3d91ff */
+
+  /* ── Static: Semantic (RGB channels) ─────────────────────── */
+  --semantic-red-default:    251 44 54;    /* #fb2c36 */
+  --semantic-red-dark:       231 0 11;     /* #e7000b */
+  --semantic-red-light:      255 162 162;  /* #ffa2a2 */
+  --semantic-green-default:  0 188 125;    /* #00bc7d */
+  --semantic-green-dark:     0 153 102;    /* #009966 */
+  --semantic-green-light:    94 233 181;   /* #5ee9b5 */
+  --semantic-blue-default:   43 127 255;   /* #2b7fff */
+  --semantic-blue-dark:      20 71 230;    /* #1447e6 */
+  --semantic-blue-light:     142 197 255;  /* #8ec5ff */
+  --semantic-purple-default: 142 81 255;   /* #8e51ff */
+  --semantic-purple-dark:    112 8 231;    /* #7008e7 */
+  --semantic-purple-light:   196 180 255;  /* #c4b4ff */
+  --semantic-orange-default: 255 137 4;    /* #ff8904 */
+  --semantic-orange-dark:    245 73 0;     /* #f54900 */
+  --semantic-orange-light:   255 184 106;  /* #ffb86a */
+  --semantic-yellow-default: 253 199 0;    /* #fdc700 */
+  --semantic-yellow-dark:    166 95 0;     /* #a65f00 */
+  --semantic-yellow-light:   255 240 133;  /* #fff085 */
+
+  /* ── Theme: Light (default) — all RGB channels ────────────── */
+  --text-primary:    15 23 42;     /* #0f172a → Neutral/Grey 900 */
+  --text-secondary:  71 85 105;    /* #475569 → Neutral/Grey 600 */
+  --text-reversed:   255 255 255;  /* #ffffff → Neutral/White */
+  --text-hint-label: 148 163 184;  /* #94a3b8 → Neutral/Grey 400 */
+  --text-link:       12 101 217;   /* #0c65d9 → Brand/Action Dark */
+
+  --bg-default:     255 255 255;  /* #ffffff */
+  --bg-grey:        248 250 252;  /* #f8fafc */
+  --bg-reversed:    15 23 42;     /* #0f172a */
+
+  --ui-card:        255 255 255;  /* #ffffff */
+  --ui-line:        226 232 240;  /* #e2e8f0 */
+  --ui-action:      0 111 255;    /* #006fff */
+  --ui-hint-icon:   110 127 151;  /* #6e7f97 */
+
+  --control-field:          255 255 255;  /* #ffffff */
+  --control-field-stroke:   203 213 225;  /* #cbd5e1 */
+  --control-stroke-active:  0 111 255;    /* #006fff */
+  --control-dark-tint:      51 65 85;     /* #334155 */
+  --control-medium-tint:    110 127 151;  /* #6e7f97 */
+  --control-light-tint:     226 232 240;  /* #e2e8f0 */
+  --control-lightest-tint:  241 245 249;  /* #f1f5f9 */
+  --control-hover:          241 245 249;  /* #f1f5f9 */
+
+  --status-success:   0 153 102;    /* #009966 */
+  --status-warning:   245 73 0;     /* #f54900 */
+  --status-error:     231 0 11;     /* #e7000b */
+  --status-highlight: 112 8 231;    /* #7008e7 */
+  --status-info:      20 71 230;    /* #1447e6 */
+  --status-alert:     166 95 0;     /* #a65f00 */
+  --status-archive:   71 85 105;    /* #475569 */
+}
+
+/* ── Dark mode ────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --text-primary:    255 255 255;  /* #ffffff */
+  --text-secondary:  203 213 225;  /* #cbd5e1 */
+  --text-reversed:   15 23 42;     /* #0f172a */
+  --text-hint-label: 110 127 151;  /* #6e7f97 */
+  --text-link:       61 145 255;   /* #3d91ff */
+
+  --bg-default:     15 23 42;     /* #0f172a */
+  --bg-grey:        15 23 42;     /* #0f172a */
+  --bg-reversed:    255 255 255;  /* #ffffff */
+
+  --ui-card:       30 41 59;     /* #1e293b */
+  --ui-line:       71 85 105;    /* #475569 */
+  --ui-action:     0 111 255;    /* #006fff — same in dark */
+  --ui-hint-icon:  148 163 184;  /* #94a3b8 */
+
+  --control-field:          30 41 59;     /* #1e293b */
+  --control-field-stroke:   71 85 105;    /* #475569 */
+  --control-stroke-active:  0 111 255;    /* #006fff */
+  --control-dark-tint:      248 250 252;  /* #f8fafc */
+  --control-medium-tint:    71 85 105;    /* #475569 */
+  --control-light-tint:     30 41 59;     /* #1e293b */
+  --control-lightest-tint:  15 23 42;     /* #0f172a */
+  --control-hover:          15 23 42;     /* #0f172a */
+
+  --status-success:   94 233 181;   /* #5ee9b5 */
+  --status-warning:   255 184 106;  /* #ffb86a */
+  --status-error:     255 162 162;  /* #ffa2a2 */
+  --status-highlight: 196 180 255;  /* #c4b4ff */
+  --status-info:      142 197 255;  /* #8ec5ff */
+  --status-alert:     255 240 133;  /* #fff085 */
+  --status-archive:   203 213 225;  /* #cbd5e1 */
+
+  --opacity-hover:    0.88;
+  --opacity-active:   0.80;
+  --opacity-modal:    0.72;
+  --opacity-disabled: 0.50;
+  --opacity-status:   0.24;
+}

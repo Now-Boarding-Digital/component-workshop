@@ -1,40 +1,43 @@
 import React from 'react'
 
 export interface ButtonProps {
-  /** Visual style of the button */
-  variant?: 'primary' | 'secondary'
-  /** Button label */
   children: React.ReactNode
-  /** Click handler */
   onClick?: () => void
-  /** Disabled state */
   disabled?: boolean
-  /** HTML button type */
   type?: 'button' | 'submit' | 'reset'
+  icon?: React.ReactNode
 }
 
 export default function Button({
-  variant = 'primary',
   children,
   onClick,
   disabled = false,
   type = 'button',
+  icon,
 }: ButtonProps) {
-  const base =
-    'inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
-
-  const variants = {
-    primary: 'bg-gray-900 text-white hover:bg-gray-700 focus:ring-gray-900',
-    secondary: 'bg-white text-gray-900 border border-gray-300 hover:bg-gray-50 focus:ring-gray-500',
-  }
-
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${base} ${variants[variant]}`}
+      className={`
+        inline-flex items-center justify-center gap-2
+        bg-ui-action border border-ui-action
+        text-neutral-white font-body font-bold text-base leading-6
+        rounded-control-lg
+        ${icon ? 'pl-6 pr-8' : 'px-8'} py-4
+        transition-colors
+        hover:opacity-90
+        focus:outline-none focus:ring-2 focus:ring-ui-action focus:ring-offset-2
+        disabled:opacity-[var(--opacity-disabled)] disabled:pointer-events-none
+      `.trim().replace(/\s+/g, ' ')}
+      aria-disabled={disabled}
     >
+      {icon && (
+        <span className="size-6 flex items-center justify-center shrink-0" aria-hidden="true">
+          {icon}
+        </span>
+      )}
       {children}
     </button>
   )
