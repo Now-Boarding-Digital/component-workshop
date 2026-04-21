@@ -24,6 +24,17 @@
   --weight-default: 400;
   --weight-bold:    700;
 
+  /* ── Text Styles: Font Sizes + Line Heights (Desktop HD / Desktop / Tablet) ── */
+  --text-size-heading-h1: 40px;  --text-lh-heading-h1: 1.2;
+  --text-size-heading-h2: 32px;  --text-lh-heading-h2: 1.2;
+  --text-size-heading-h3: 24px;  --text-lh-heading-h3: 1.25;
+  --text-size-heading-h4: 18px;  --text-lh-heading-h4: 1.32;
+  --text-size-heading-h5: 12px;  --text-lh-heading-h5: 1.2;
+  --text-size-content-base:    16px;  --text-lh-content-base:    24px;
+  --text-size-content-small:   14px;  --text-lh-content-small:   20px;
+  --text-size-content-xsmall:  12px;  --text-lh-content-xsmall:  16px;
+  --text-size-content-number:  30px;  --text-lh-content-number:  40px;
+
   /* ── Opacity ──────────────────────────────────────────────── */
   --opacity-hover:    0.06;
   --opacity-active:   0.12;
@@ -33,7 +44,7 @@
 
   /* ── Static: Neutral (RGB channels) ──────────────────────── */
   --neutral-white:      255 255 255;  /* #ffffff */
-  --neutral-grey-950:   231 0 11;     /* #e7000b — as per Figma tokens */
+  --neutral-grey-950:   2 6 23;       /* #020617 */
   --neutral-grey-900:   15 23 42;     /* #0f172a */
   --neutral-grey-800:   30 41 59;     /* #1e293b */
   --neutral-grey-700:   51 65 85;     /* #334155 */
@@ -144,4 +155,15 @@
   --opacity-modal:    0.72;
   --opacity-disabled: 0.50;
   --opacity-status:   0.24;
+}
+
+/* ── Responsive: Mobile font size overrides (< 768px) ─────────────────────── */
+/* Source: Figma Responsive collection — Mobile breakpoint (393px)             */
+@media (max-width: 767px) {
+  :root {
+    --text-size-heading-h1: 36px;
+    --text-size-heading-h2: 28px;
+    --text-size-heading-h3: 20px;
+    --text-size-heading-h4: 16px;
+  }
 }
