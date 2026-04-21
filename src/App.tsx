@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import ComponentShowcase from '@/pages/ComponentShowcase'
 import VariablesPage from '@/pages/VariablesPage'
+import TypographyPage from '@/pages/TypographyPage'
 
-type Page = 'components' | 'variables'
+type Page = 'components' | 'variables' | 'typography'
 
 export default function App() {
   const [page, setPage] = useState<Page>('variables')
@@ -11,7 +12,7 @@ export default function App() {
     <div>
       <div className="sticky top-0 z-10 bg-white border-b border-gray-200 px-10 flex items-center gap-6">
         <span className="text-sm font-semibold text-gray-900 py-3 mr-2">Component Workshop</span>
-        {([['variables', 'Variables'], ['components', 'Components']] as [Page, string][]).map(([p, label]) => (
+        {([['variables', 'Variables'], ['typography', 'Typography'], ['components', 'Components']] as [Page, string][]).map(([p, label]) => (
           <button
             key={p}
             onClick={() => setPage(p)}
@@ -25,7 +26,7 @@ export default function App() {
           </button>
         ))}
       </div>
-      {page === 'variables' ? <VariablesPage /> : <ComponentShowcase />}
+      {page === 'variables' ? <VariablesPage /> : page === 'typography' ? <TypographyPage /> : <ComponentShowcase />}
     </div>
   )
 }

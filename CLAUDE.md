@@ -104,6 +104,30 @@ This enables opacity modifiers like `bg-ui-action/50` to work correctly.
 | `Radius/Control Large` | `--radius-control-large` | `rounded-control-lg` |
 | `Radius/Control Medium` | `--radius-control-medium` | `rounded-control-md` |
 | `Fonts/Body Font` | `--fonts-body` | `font-body` |
+| `Headings/H1` (size + lh) | `--text-size-heading-h1`, `--text-lh-heading-h1` | `text-heading-h1` |
+| `Headings/H2` (size + lh) | `--text-size-heading-h2`, `--text-lh-heading-h2` | `text-heading-h2` |
+| `Headings/H3` (size + lh) | `--text-size-heading-h3`, `--text-lh-heading-h3` | `text-heading-h3` |
+| `Headings/H4` (size + lh) | `--text-size-heading-h4`, `--text-lh-heading-h4` | `text-heading-h4` |
+| `Headings/H5` (size + lh) | `--text-size-heading-h5`, `--text-lh-heading-h5` | `text-heading-h5` |
+| `Content/Base` (size + lh) | `--text-size-content-base`, `--text-lh-content-base` | `text-content-base` |
+| `Content/Small` (size + lh) | `--text-size-content-small`, `--text-lh-content-small` | `text-content-small` |
+| `Content/XSmall` (size + lh) | `--text-size-content-xsmall`, `--text-lh-content-xsmall` | `text-content-xsmall` |
+| `Content/Number Field` (size + lh) | `--text-size-content-number`, `--text-lh-content-number` | `text-content-number` |
+
+**Font size classes bundle line-height** — each `text-heading-*` / `text-content-*` class sets both `font-size` and `line-height` via the CSS variable pair. Never set font size or line-height as inline styles; always use these classes.
+
+**Font sizes are responsive** — heading sizes come from the Figma **Responsive** variable collection, not the local text styles. H1–H4 scale down on mobile. The CSS variables are defined at Desktop HD values in `:root` and overridden at `@media (max-width: 767px)` in `tokens.css`. The Tailwind classes (`text-heading-h1` etc.) stay the same at every breakpoint — the variables do the work automatically.
+
+| Style | Desktop | Mobile |
+|---|---|---|
+| `Headings/H1` | 40px | 36px |
+| `Headings/H2` | 32px | 28px |
+| `Headings/H3` | 24px | 20px |
+| `Headings/H4` | 18px | 16px |
+| `Headings/H5` | 12px | 12px |
+| `Text/Base`, `Small`, `XSmall` | unchanged | unchanged |
+
+**Source of truth for font sizes**: always fetch from the Figma Responsive collection (not local text styles) using `mcp__figma__use_figma`. Local text styles only carry font weight, line-height, and letter-spacing — not the responsive size values.
 
 ### Adding a new token
 1. Add the value to `figmaTokens.ts` under the correct collection
@@ -121,9 +145,10 @@ Every component Claude generates must follow these rules:
 2. **Named props interface**: always export a `[ComponentName]Props` interface
 3. **Default export**: the component itself is the default export
 4. **No hardcoded values**: all colors, radii, and fonts must use token-linked Tailwind classes
-5. **No inline styles**: use Tailwind classes only
-6. **Semantic HTML**: use correct HTML elements (`button`, `nav`, `header`, etc.)
-7. **Accessibility**: include `aria-*` attributes and focus states where relevant
+5. **No inline styles**: use Tailwind classes only — never set `fontFamily`, `color`, `borderRadius`, or similar via the `style` prop
+6. **Always use CSS variable classes for fonts**: use `font-body` or `font-heading` (which resolve to `var(--fonts-body)` / `var(--fonts-heading)`) — never write `fontFamily: 'Inter'` or any hardcoded font name. Setting a font name directly as an inline style bypasses the CSS variable chain and will not update if the token changes.
+7. **Semantic HTML**: use correct HTML elements (`button`, `nav`, `header`, etc.)
+8. **Accessibility**: include `aria-*` attributes and focus states where relevant
 
 ---
 
